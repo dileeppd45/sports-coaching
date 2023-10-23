@@ -1,0 +1,35 @@
+
+{% extends 'coach_headernologout.html' %}
+{% block content %}
+<br>
+<br>
+<div class="col p-2 bg-info container">
+  <h3>Add Video</h3>
+</div>
+<br>
+<div class="container">
+  <table class="table">
+    <form action="http://blackfarm.in/sports/VideoUploadAction.php" method="post" enctype="multipart/form-data" >
+      {% csrf_token %}
+    <tr>
+      <td>TITLE:</td>
+      <td><input type="text" style="opacity:0.6; width:250px; height:35px; " name="txtTitle" required ></td>
+    </tr>
+    <tr>
+      <td>DESCRIPTION:</td>
+      <td><input type="text" name="txtDesc"  style="opacity:0.6; width:250px; height:35px; "required ></td>
+    </tr>
+      <tr>
+      <td>VIDEOS:</td>
+      <td><input type="file" name="fileToUpload"  style="opacity:0.6; width:250px; height:35px; " accept="video/mp4" required ></td>
+    </tr>
+
+    <tr>
+      <td>&nbsp;</td>
+      <td><input name="Submit" type="submit" id="Submit" value="Register" ></td>
+    </tr>
+    </form>
+  </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+
+{% extends 'physios_header.html' %}
+{% block content %}
+<br>
+<br>
+<div class="col p-2 bg-info container">
+  <h3>Viewing Fitness Details</h3>
+</div>
+<br>
+<div class="container">
+  <table  class="table">
+        <form action="../fitness_details_add" method="post" enctype="multipart/form-data" >
+      {% csrf_token %}
+
+    <tr>
+      <th>NAME:</th>
+        <td>{{id}}</td>
+      </tr>
+    <tr>
+      <td >AGE:</td>
+      <td><input type="number"  name="age" style="opacity:0.6; width:250px; height:35px; " required ></td>
+      <input type="hidden" value="{{id}}" name="id">
+      </tr>
+    <tr>
+      <td >WEIGHT: </td>
+      <td><input type="text"  name="weight" style="opacity:0.6; width:250px; height:35px; " required ></td>
+
+      </tr>
+    <tr>
+      <td >HEIGHT:</td>
+      <td><input type="text"  name="height" style="opacity:0.6; width:250px; height:35px; " required ></td>
+    </tr>
+    <tr>
+      <td>RUNNING SPEED:</td>
+      <td><input type="text"  name="running" style="opacity:0.6; width:250px; height:35px; " required ></td>
+    </tr>
+    <tr>
+      <td>PUSHUP:</td>
+      <td><input type="number"  name="pushup" style="opacity:0.6; width:250px; height:35px; " required ></td>
+    </tr>
+    <tr>
+        <td>PULLUP:</td>
+        <td><input type="number"  name="pullup" style="opacity:0.6; width:250px; height:35px; " required ></td>
+    </tr>
+    <tr>
+      <td>MUSCLE PAIN:</td>
+      <td><input type="text"  name="muscle" style="opacity:0.6; width:250px; height:35px; " required ></td>
+    </tr>
+    <tr>
+      <td>STAMINA:</td>
+      <td><input type="text"  name="stamina" style="opacity:0.6; width:250px; height:35px; " required ></td>
+    </tr>
+      <tr>
+      <td>&nbsp;</td>
+      <td><input name="Submit" type="submit" id="Submit" value="Add" ></td>
+    </tr>
+    </form>
+
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+
+{% extends 'coach_header.html' %}
+{% block content %}
+<br>
+<br>
+<div class="col p-2 bg-info container">
+  <h3>Viewing Schedule</h3>
+</div>
+<br>
+<div class="container">
+  <table  class="table">
+    <tr>
+        <td >SL NO </td>
+      <td>MATCH DATE</td>
+        <td>OPPONENT NAME</td>
+        <td>MATCH PLACE</td>
+        <td>TIMING</td>
+        <td colspan="2"></td>
+
+    </tr>
+{% for data in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+      <td>{{ data.1 }}</td>
+      <td>{{ data.2 }}</td>
+        <td>{{ data.3 }}</td>
+        <td>{{ data.4 }}</td>
+        <td><a href="../edit_schedule/{{data.0}}">edit</a> </td>
+      <td><a href="../delete_schedule/{{data.0}}">delete</a> </td>
+    </tr>
+{% endfor %}
+  </table>
+</div>
+{% endblock %}

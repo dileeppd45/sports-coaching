@@ -1,0 +1,42 @@
+
+{% extends 'admin_header.html' %}
+{% block content %}
+<br>
+<br>
+<div class="col p-2 bg-info container">
+  <h3>Edit Venue</h3>
+</div>
+<br>
+<div class="container">
+  <table class="table">
+    <form action="../venue_edit" method="post" enctype="multipart/form-data" >
+      {% csrf_token %}
+
+    <tr>
+      <td>NAME:</td>
+      <td><input type="text" name="name" value="{{data.1}}" style="opacity:0.6; width:250px; height:35px; "required ></td>
+      <input type="hidden" value="{{data.0}}" name="id">
+    </tr>
+
+    <tr>
+      <td>ADDRESS:</td>
+      <td><textarea type="text" name="address" style="opacity:0.6; width:250px; " required >{{data.2}}</textarea></td>
+    </tr>
+    <tr>
+      <td>PHONE NUMBER:</td>
+      <td><input type="text" value="{{data.4}}" name="phone" style="opacity:0.6; width:250px; height:35px; " required ></td>
+    </tr>
+    <tr>
+      <td>EMAIL:</td>
+      <td><input type="text" name="email" value="{{data.3}}" style="opacity:0.6; width:250px; height:35px; " required></td>
+    </tr>
+
+    <tr>
+      <td>&nbsp;</td>
+      <td><input name="Submit" type="submit" id="Submit" value="Register" ></td>
+    </tr>
+    </form>
+  </table>
+</div>
+
+{% endblock %}

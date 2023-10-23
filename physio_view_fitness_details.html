@@ -1,0 +1,43 @@
+
+{% extends 'physios_header.html' %}
+{% block content %}
+<br>
+<br>
+<div class="col p-2 bg-info container">
+  <h3>Register Fitness Details</h3>
+</div>
+<br>
+<div class="container">
+  <table  class="table">
+    <tr>
+      <td>SL NO:</td>
+      <td>CHECKUP DATE:</td>
+      <td >AGE:</td>
+      <td >WEIGHT: </td>
+      <td >HEIGHT:</td>
+      <td>RUNNING SPEED:</td>
+      <td>PUSHUP:</td>
+        <td>PULLUP</td>
+      <td>MUSCLE PAIN</td>
+      <td>STAMINA</td>
+      <td colspan="2"></td>
+    </tr>
+{% for data in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+      <td>{{ data.2 }}</td>
+      <td>{{ data.3 }}</td>
+      <td>{{ data.4 }}</td>
+      <td>{{ data.5 }}</td>
+      <td>{{ data.6 }}</td>
+      <td>{{ data.7 }}</td>
+      <td>{{ data.8 }}</td>
+      <td>{{ data.9 }}</td>
+      <td>{{ data.10 }}</td>
+      <td><a href="../edit_fitness_details/{{data.0}}">edit</a> </td>
+      <td><a href="../delete_fitness_details/{{data.0}}">delete</a> </td>
+    </tr>
+{% endfor %}
+  </table>
+</div>
+{% endblock %}

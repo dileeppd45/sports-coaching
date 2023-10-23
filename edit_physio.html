@@ -1,0 +1,55 @@
+
+{% extends 'admin_header.html' %}
+{% block content %}
+<br>
+<br>
+<div class="col p-2 bg-info container">
+  <h3>Edit Physios Details</h3>
+</div>
+<br>
+<div class="container">
+  <table  class="table">
+        <form action="../physio_edit" method="post" enctype="multipart/form-data" >
+      {% csrf_token %}
+    <tr>
+      <th>PHYSIOS ID:</th>
+      <td>{{data.0}}</td>
+      </tr>
+
+    <tr>
+      <th>NAME:</th>
+      <td><input type="text" value="{{data.1}}" name="name" style="opacity:0.6; width:250px; height:35px; " required ></td>
+      </tr>
+    <tr>
+      <th >AGE:</th>
+      <td><input type="number" value="{{data.5}}" name="age" style="opacity:0.6; width:250px; height:35px; " required ></td>
+      <input type="hidden" value="{{data.0}}" name="id">
+
+      </tr>
+    <tr>
+      <th >ADDRESS: </th>
+      <td><input type="text" value="{{data.2}}"  name="address" style="opacity:0.6; width:250px; height:35px; " required ></td>
+
+      </tr>
+    <tr>
+      <th >EMAIL:</th>
+      <td><input type="text" value="{{data.4}}"  name="email" style="opacity:0.6; width:250px; height:35px; " required ></td>
+    </tr>
+    <tr>
+      <th>PHONE:</th>
+      <td><input type="text"  value="{{data.3}}" name="phone" style="opacity:0.6; width:250px; height:35px; " required ></td>
+    </tr>
+    <tr>
+      <th>PASSWORD:</th>
+      <td><input type="number" value="{{data.6}}"  name="password" style="opacity:0.6; width:250px; height:35px; " required ></td>
+    </tr>
+
+      <tr>
+      <td>&nbsp;</td>
+      <td><input name="Submit" type="submit" id="Submit" value="Update" ></td>
+    </tr>
+    </form>
+
+  </table>
+</div>
+{% endblock %}

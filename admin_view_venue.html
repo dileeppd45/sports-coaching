@@ -1,0 +1,34 @@
+
+{% extends 'admin_header.html' %}
+{% block content %}
+<br>
+<br>
+<div class="col p-2 bg-info container">
+  <h3>Viewing Venue</h3>
+</div>
+<br>
+<div class="container">
+  <table  class="table">
+    <tr>
+        <td >SL NO: </td>
+      <td>NAME:</td>
+      <td >ADDRESS:</td>
+      <td >PHONE NUMBER: </td>
+      <td >EMAIL:</td>
+      <td colspan="2"></td>
+    </tr>
+{% for data in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+      <td>{{ data.1 }}</td>
+      <td>{{ data.2 }}</td>
+      <td>{{ data.4 }}</td>
+      <td>{{ data.3 }}</td>
+      <td><a href="../edit_venue/{{data.0}}">edit</a></td>
+        <td><a href="../delete_venue/{{data.0}}">edit</a></td>
+
+    </tr>
+{% endfor %}
+  </table>
+</div>
+{% endblock %}

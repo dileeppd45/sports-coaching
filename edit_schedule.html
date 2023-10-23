@@ -1,0 +1,43 @@
+{% extends 'coach_header.html' %}
+{% block content %}
+<br>
+<br>
+<div class="col p-2 bg-info container">
+  <h3>Edit Schedule</h3>
+</div>
+<br>
+<div class="container">
+  <table  class="table">
+        <form action="../schedule_edit" method="post" enctype="multipart/form-data" >
+      {% csrf_token %}
+
+
+    <tr>
+      <th>MATCH DATE:</th>
+      <td><input type="date" value="{{data.1}}" name="match_date" style="opacity:0.6; width:250px; height:35px; " required ></td>
+      </tr>
+    <tr>
+      <th >OPPONENT NAME:</th>
+      <td><input type="text" value="{{data.2}}" name="opponent" style="opacity:0.6; width:250px; height:35px; " required ></td>
+      <input type="hidden" value="{{data.0}}" name="id">
+
+      </tr>
+    <tr>
+      <th >MATCH PLACE: </th>
+      <td><input type="text" value="{{data.3}}"  name="match_place" style="opacity:0.6; width:250px; height:35px; " required ></td>
+
+      </tr>
+    <tr>
+      <th >TIMING:</th>
+      <td><input type="text" value="{{data.4}}"  name="timing" style="opacity:0.6; width:250px; height:35px; " required ></td>
+    </tr>
+
+      <tr>
+      <td>&nbsp;</td>
+      <td><input name="Submit" type="submit" id="Submit" value="Update" ></td>
+    </tr>
+    </form>
+
+  </table>
+</div>
+{% endblock %}

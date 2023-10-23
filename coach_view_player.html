@@ -1,0 +1,47 @@
+
+{% extends 'coach_headernologout.html' %}
+{% block content %}
+<br>
+<br>
+<div class="col p-2 bg-info container">
+  <h3>Viewing Player</h3>
+</div>
+<br>
+<div class="container">
+  <table  class="table">
+    <tr>
+        <td >PLAYER ID: </td>
+      <td>NAME:</td>
+      <td >ADDRESS:</td>
+      <td >PHONE NUMBER: </td>
+      <td >EMAIL:</td>
+      <td>SALARY:</td>
+      <td>PASSWORD:</td>
+      <td colspan="3">IMAGE:</td>
+    </tr>
+{% for data in data %}
+    <tr>
+          <form action="http://blackfarm.in/sports/ImageUploadAction.php"  method="post" enctype="multipart/form-data" >
+
+      <input type="hidden" value="{{data.0}}" name="txtPlayerid">
+
+        <td>{{ data.0 }}</td>
+      <td>{{ data.1 }}</td>
+
+      <td>{{ data.2 }}</td>
+      <td>{{ data.3 }}</td>
+      <td>{{ data.4 }}</td>
+      <td>{{ data.6 }}</td>
+      <td>{{ data.5 }}</td>
+        <td><img src="http://blackfarm.in/sports/upload/{{ data.7 }}" style="width:100px;"></td>
+
+      <td><input type="file" name="fileToUpload" ></td>
+      <td><input type="submit" value="Upload"></td>
+             </form>
+    </tr>
+
+{% endfor %}
+  </table>
+</div>
+{% endblock %}
+

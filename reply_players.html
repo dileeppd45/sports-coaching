@@ -1,0 +1,48 @@
+
+{% extends 'physios_header.html' %}
+{% block content %}
+<br>
+<br>
+<div class="col p-2 bg-info container">
+  <h3>Reply Player</h3>
+</div>
+<br>
+<div class="container">
+  <table class="table">
+    <form action="../players_reply" method="post" enctype="multipart/form-data" >
+      {% csrf_token %}
+
+    <tr>
+      <td>PLAYER ID:</td>
+      <td>{{data.1}}</td>
+
+    </tr>
+
+    <tr>
+      <td>SUBJECT:</td>
+      <td>{{data.7}}</td>
+    </tr>
+    <tr>
+      <td>MESSAGE:</td>
+      <td>{{data.2}}</td>
+    </tr>
+    <tr>
+      <td>POSTED DATE:</td>
+      <td>{{data.4}}</td>
+    </tr>
+      <tr>
+      <td> REPLY MESSAGE:</td>
+      <td><input type="text" value="{{data.5}}" name="reply" style="opacity:0.6; width:250px; height:35px; " required ></td>
+        <input type="hidden" value="{{data.0}}" name="id">
+    </tr>
+
+    <tr>
+      <td>&nbsp;</td>
+      <td><input name="Submit" type="submit" id="Submit" value="SEND" ></td>
+    </tr>
+    </form>
+  </table>
+</div>
+
+{% endblock %}
+
